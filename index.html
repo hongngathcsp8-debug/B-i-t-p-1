@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EduPlan 7991 - Toán 6</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f1f5f9;color:#1e293b}
+header{background:linear-gradient(135deg,#2563eb,#4338ca);color:#fff;padding:25px 7%}
+header h1{margin:0 0 8px}.wrap{max-width:1150px;margin:22px auto;padding:0 18px}
+.grid{display:grid;grid-template-columns:330px 1fr;gap:20px}.card{background:white;padding:20px;border-radius:14px;box-shadow:0 4px 16px #0001}
+label{display:block;font-weight:bold;margin:12px 0 5px}input,textarea,select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;box-sizing:border-box}textarea{min-height:80px}
+button{width:100%;padding:12px;margin-top:9px;border:0;border-radius:8px;font-weight:bold;cursor:pointer}.blue{background:#2563eb;color:#fff}.green{background:#16a34a;color:#fff}.orange{background:#f59e0b;color:#fff}.gray{background:#e2e8f0}
+.preview{min-height:560px;border:1px solid #e2e8f0;border-radius:10px;padding:25px}.q{padding:14px;background:#f8fafc;border-left:4px solid #2563eb;margin:12px 0;border-radius:5px}
+.answer{display:none;background:#ecfdf5;padding:12px;margin-top:8px;border-radius:6px}.show{display:block}
+.badge{background:#dbeafe;color:#1d4ed8;padding:5px 10px;border-radius:20px;font-size:12px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>EduPlan 7991 – Toán 6</h1>
+<p>Web mẫu: Cộng, trừ số nguyên – luyện tập và tạo bài kiểm tra</p>
+</header>
+<div class="wrap"><div class="grid">
+<div class="card">
+<h2>Thông tin bài học</h2>
+<label>Môn</label><input value="Toán 6" disabled>
+<label>Chủ đề</label><input id="topic" value="Cộng, trừ số nguyên">
+<label>Yêu cầu cần đạt</label>
+<textarea id="goal">Học sinh làm được các bài tập cơ bản về cộng, trừ số nguyên.</textarea>
+<label>Số câu kiểm tra</label><select id="n"><option>5</option><option>8</option><option>10</option></select>
+<button class="blue" onclick="plan()">📚 Tạo kế hoạch bài dạy</button>
+<button class="orange" onclick="test()">📝 Tạo bài kiểm tra</button>
+<button class="green" onclick="download()">⬇️ Xuất nội dung</button>
+<button class="gray" onclick="window.print()">🖨️ In / Lưu PDF</button>
+</div>
+<div class="card"><div id="view" class="preview">
+<span class="badge">TOÁN 6</span>
+<h2>Cộng, trừ số nguyên</h2>
+<p>Chọn chức năng bên trái để tạo sản phẩm.</p>
+<div class="q"><b>Yêu cầu cần đạt:</b> Học sinh làm được các bài tập cơ bản về cộng, trừ số nguyên.</div>
+</div></div>
+</div></div>
+<script>
+let output="";
+function plan(){
+output=`KẾ HOẠCH BÀI DẠY – TOÁN 6
+Bài: CỘNG, TRỪ SỐ NGUYÊN
+
+I. YÊU CẦU CẦN ĐẠT
+Học sinh làm được các bài tập cơ bản về cộng, trừ số nguyên.
+
+II. CHUẨN BỊ
+- SGK, bảng phụ/phiếu học tập.
+- Máy chiếu hoặc thiết bị số nếu có.
+
+III. TIẾN TRÌNH DẠY HỌC
+1. Khởi động: GV đưa tình huống về nhiệt độ, độ cao hoặc tiền thu – chi.
+2. Hình thành kiến thức: Ôn quy tắc cộng hai số nguyên cùng dấu, khác dấu và phép trừ số nguyên.
+3. Luyện tập: HS thực hiện các phép tính cơ bản, giải thích cách làm.
+4. Vận dụng: Giải quyết một tình huống thực tế đơn giản.
+
+IV. ĐÁNH GIÁ
+- Quan sát, hỏi đáp và kiểm tra kết quả bài tập.
+- HS tự đánh giá và sửa lỗi.
+
+Sản phẩm: Phiếu/bài tập cộng, trừ số nguyên.`;
+document.getElementById("view").innerHTML=`<span class="badge">KẾ HOẠCH BÀI DẠY</span>
+<h2>Cộng, trừ số nguyên</h2>
+<h3>Yêu cầu cần đạt</h3><p>Học sinh làm được các bài tập cơ bản về cộng, trừ số nguyên.</p>
+<h3>Tiến trình</h3>
+<div class="q"><b>1. Khởi động:</b> Tình huống thực tế về nhiệt độ, độ cao, thu – chi.</div>
+<div class="q"><b>2. Hình thành kiến thức:</b> Ôn quy tắc cộng và trừ số nguyên.</div>
+<div class="q"><b>3. Luyện tập:</b> Thực hiện các phép tính cơ bản và sửa lỗi.</div>
+<div class="q"><b>4. Vận dụng:</b> Giải quyết tình huống thực tế đơn giản.</div>`;
+}
+function test(){
+let qs=[
+["Câu 1","Tính: 7 + (-3) = ?","A. 4","B. -4","C. 10","D. -10","A. 4"],
+["Câu 2","Tính: (-8) + (-5) = ?","A. 13","B. -13","C. 3","D. -3","B. -13"],
+["Câu 3","Tính: 12 - 17 = ?","A. 5","B. -5","C. 29","D. -29","B. -5"],
+["Câu 4","Tính: (-6) - (-10) = ?","A. -16","B. 16","C. 4","D. -4","C. 4"],
+["Câu 5","Tính: (-15) + 9 = ?","A. -24","B. 24","C. -6","D. 6","C. -6"],
+["Câu 6","Tính: 18 - (-7) = ?","A. 11","B. -11","C. 25","D. -25","C. 25"],
+["Câu 7","Tính: (-20) + 14 = ?","A. -34","B. 34","C. -6","D. 6","C. -6"],
+["Câu 8","Tính: 5 - (-9) = ?","A. -4","B. 4","C. 14","D. -14","C. 14"],
+["Câu 9","Tính: (-11) - 6 = ?","A. -17","B. 17","C. -5","D. 5","A. -17"],
+["Câu 10","Tính: 16 + (-21) = ?","A. 37","B. -37","C. 5","D. -5","D. -5"]];
+let n=+document.getElementById("n").value; qs=qs.slice(0,n);
+output="BÀI KIỂM TRA TOÁN 6 – CỘNG, TRỪ SỐ NGUYÊN\n\n";
+let h=`<span class="badge">BÀI KIỂM TRA</span><h2>Toán 6 – Cộng, trừ số nguyên</h2><p><b>Yêu cầu:</b> Làm các bài tập cơ bản. Chọn đáp án đúng.</p>`;
+qs.forEach((x,i)=>{h+=`<div class="q"><b>${x[0]}.</b> ${x[1]}<br>${x[2]}<br>${x[3]}<br>${x[4]}<br>${x[5]}<button class="gray" onclick="this.nextElementSibling.classList.toggle('show')">Xem đáp án</button><div class="answer"><b>Đáp án:</b> ${x[6]}</div></div>`;output+=`${x[0]}. ${x[1]}\n${x[2]}\n${x[3]}\n${x[4]}\n${x[5]}\nĐáp án: ${x[6]}\n\n`});
+document.getElementById("view").innerHTML=h;
+}
+function download(){
+if(!output){alert("Hãy tạo kế hoạch hoặc bài kiểm tra trước.");return}
+let b=new Blob([output],{type:"text/plain;charset=utf-8"}),a=document.createElement("a");
+a.href=URL.createObjectURL(b);a.download="Toan6_CongTruSoNguyen.txt";a.click();
+}
+</script>
+</body></html>
